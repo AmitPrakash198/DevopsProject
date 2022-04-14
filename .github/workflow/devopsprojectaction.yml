@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-18.04
     
     steps:
+    -name: Check out code
+     user: actions/checkout@v2
     
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
