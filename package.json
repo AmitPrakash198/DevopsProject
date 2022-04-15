@@ -1,7 +1,6 @@
 {
   "name": "rest-api-docker",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -12,5 +11,15 @@
   "dependencies": {
     "express": "^4.17.3",
     "nodemon": "^2.0.15"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmitPrakash198/DevopsProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AmitPrakash198/DevopsProject/issues"
+  },
+  "homepage": "https://github.com/AmitPrakash198/DevopsProject#readme",
+  "description": ""
 }
