@@ -1,16 +1,13 @@
 name: Deploy to Amazon ECS
 
 on:
-  release:
-      type: [created]
-  # run manually
-  workflow_dispatch:
-
-name: Deploy to ECS 
+  push:
+    branches: [ master ]
 
 jobs:
-  deploy:
-    name: Deploy
+  
+  build:
+    
     runs-on: ubuntu-latest
 
     steps:
