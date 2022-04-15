@@ -1,5 +1,5 @@
 {
-  "name": "rest-api-docker",
+  "name": "devops_project_repo",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -20,5 +20,5 @@
     "url": "https://github.com/AmitPrakash198/DevopsProject/issues"
   },
   "homepage": "https://github.com/AmitPrakash198/DevopsProject#readme",
-  "description": "rest-api-docker package details required"
+  "description": "devops_project_repo package details required"
 }
