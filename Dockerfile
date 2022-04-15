@@ -1,6 +1,6 @@
 FROM node:9-slim
-WORKDIR /app
-COPY package.json ./app
+WORKDIR /myapp
+COPY package.json ./myapp
 RUN npm install 
 COPY . /app
 EXPOSE 5000
