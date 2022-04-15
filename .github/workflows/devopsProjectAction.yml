@@ -13,6 +13,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3.1.1
+
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -30,7 +34,6 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: devops_project_repo
         IMAGE_TAG: ${{ github.sha }}
-       
       run: 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         
