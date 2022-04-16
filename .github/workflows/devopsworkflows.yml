@@ -1,9 +1,5 @@
 name: Devops-Project
 
-orbs:
-    aws-ecr: circleci/aws-ecr@7.3.0
-
-
 on:
   push:
     branches: [ master ]
@@ -44,6 +40,7 @@ jobs:
         repo: devops_project_repo
         # Make sure these aren't surrounded by quotes
         tag: latest,$CIRCLE_BUILD_NUM
+        
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
