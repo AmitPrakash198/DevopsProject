@@ -1,4 +1,8 @@
-name: Node.js CI
+name: Devops-Project
+
+orbs:
+    aws-ecr: circleci/aws-ecr@7.3.0
+
 
 on:
   push:
@@ -12,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/   
 
     steps:
     - uses: actions/checkout@v3
@@ -35,6 +39,11 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
+    - aws-ecr/build-and-push-image:
+        create-repo: true
+        repo: devops_project_repo
+        # Make sure these aren't surrounded by quotes
+        tag: latest,$CIRCLE_BUILD_NUM
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
@@ -42,6 +51,6 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        
+
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
