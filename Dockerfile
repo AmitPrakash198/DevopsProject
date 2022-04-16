@@ -1,7 +1,7 @@
-FROM node:9-slim
-WORKDIR /app
-COPY package.json ./app
-RUN npm install 
-COPY . /app
+FROM node:16
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
 EXPOSE 5000
-CMD ["npm","start"]
+CMD [ "node", "server.js" ]
