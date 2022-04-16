@@ -35,12 +35,6 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - aws-ecr/build-and-push-image:
-        create-repo: true
-        repo: devops_project_repo
-        # Make sure these aren't surrounded by quotes
-        tag: latest,$CIRCLE_BUILD_NUM
-        
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
