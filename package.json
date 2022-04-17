@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "F:/Projects/ExpressJS/myapp/__test__/simple_test.js"
+    "test": "express"
   },
   "author": "",
   "license": "ISC",
