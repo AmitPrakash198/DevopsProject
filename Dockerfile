@@ -5,4 +5,4 @@ RUN npm install
 RUN npm install js-yaml
 COPY . .
 EXPOSE 5000
-CMD [ "node", "server.js" ]
+CMD [ "node", "app.js" ]
