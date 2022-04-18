@@ -14,9 +14,8 @@ env:
 #   contents: read
 
 jobs:
-
-  build:
-    name: Build Image
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     environment: production
 
