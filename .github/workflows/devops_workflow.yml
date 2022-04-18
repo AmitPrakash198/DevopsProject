@@ -2,7 +2,8 @@ name: Deploy to Amazon ECS
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
 
 env:
   ECS_SERVICE: DevopsProjectService
@@ -38,7 +39,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: devops_project_repo
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ github.sha }}
       run:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
 
