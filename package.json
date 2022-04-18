@@ -1,11 +1,17 @@
 {
   "name": "myapp",
   "version": "1.0.0",
-  "description": "Devops-Project Packages",
+  "description": "Devops Project Packages",
   "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon -L app.js"
+    "start": " node app.js ",
+    "dev": " nodemon app.js "
   },
   "repository": {
     "type": "git",
@@ -17,11 +23,5 @@
   "bugs": {
     "url": "https://github.com/AmitPrakash198/DevopsProject/issues"
   },
-  "homepage": "https://github.com/AmitPrakash198/DevopsProject#readme",
-  "dependencies": {
-    "express": "^4.17.3"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+  "homepage": "https://github.com/AmitPrakash198/DevopsProject#readme"
 }
