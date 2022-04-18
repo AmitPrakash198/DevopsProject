@@ -14,14 +14,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    env:
-      AWS_REGION: us-east-1                   
-      ECR_REPOSITORY: devops_project_repo           
-      ECS_SERVICE: DevopsProjectService
-      ECS_CLUSTER: DevopsProjectCluster
-      ECS_TASK_DEFINITION: ./aws-task-definition.json 
-      CONTAINER_NAME: DevopsProjectContainer
-
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -40,7 +33,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: us-east-1 
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -50,7 +43,8 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: latest
+        ECR_REPOSITORY: devops_project_repo
+        IMAGE_TAG: nodeapp_image
       run: 
         # Build a docker container and
         # push it to ECR so that it can
@@ -64,14 +58,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
+        task-definition: aws-task-definition.json
+        container-name: DevopsProjectContainer
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
+        service: DevopsProjectService
+        cluster: DevopsProjectCluster
         wait-for-service-stability: true

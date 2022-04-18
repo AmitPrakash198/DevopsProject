@@ -2,6 +2,7 @@ const express =require("express");
 const path=require("path")
 const app=express();
 const port= process.env.PORT || 5000;
+const config = require('config')
 
 //Built in middleware
 
