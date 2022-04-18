@@ -12,7 +12,6 @@ env:
   CONTAINER_NAME: DevopsProjectContainer    
 # permissions:
 #   contents: read
-
 jobs:
   deploy:
     name: Deploy
