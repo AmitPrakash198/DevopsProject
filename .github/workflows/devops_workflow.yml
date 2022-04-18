@@ -8,14 +8,14 @@ on:
 env:
   ECS_SERVICE: DevopsProjectService
   ECS_CLUSTER: DevopsProjectCluster
-  ECS_TASK_DEFINITION: F:\Projects\ExpressJS\myapp\aws-task-definition.json 
-  CONTAINER_NAME: DevopsProjectContainer          
+  ECS_TASK_DEFINITION: aws-task-definition.json 
+  CONTAINER_NAME: DevopsProjectContainer    
 # permissions:
 #   contents: read
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    name: Build Image
     runs-on: ubuntu-latest
     environment: production
 
