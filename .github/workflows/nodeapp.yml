@@ -43,7 +43,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: devops_project_repo
+        ECR_REPOSITORY: new_nodeapp_repo
         IMAGE_TAG: nodeapp_image
       run: 
         # Build a docker container and
