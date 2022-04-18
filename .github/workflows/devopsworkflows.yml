@@ -6,8 +6,8 @@ on:
       - main
 
 env:
-  ECS_SERVICE: DevopsProjectService                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: DevopsProjectCluster                 # set this to your Amazon ECS cluster name
+  ECS_SERVICE: DevopsProjectService
+  ECS_CLUSTER: DevopsProjectCluster
   ECS_TASK_DEFINITION: F:\Projects\ExpressJS\myapp\aws-task-definition.json 
   CONTAINER_NAME: DevopsProjectContainer          
 permissions:
