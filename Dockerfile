@@ -1,9 +1,7 @@
-FROM node:9-slim
-ENV NODE_ENV=production
+FROM node:16
 WORKDIR /app
-# COPY ["<src>", "<dest>"]
-COPY ["package.json", "package-lock.json*", "./"]
-RUN npm install --production
-COPY . .
+COPY package.json .
+RUN npm install 
+COPY . ./
 EXPOSE 5000
-CMD [ "npm", "start" ]
+CMD [ "npm", "run" , "dev" ]
