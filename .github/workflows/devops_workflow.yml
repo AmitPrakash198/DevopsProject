@@ -14,10 +14,11 @@ env:
 #   contents: read
 
 jobs:
+
   build:
-    - name: Build Image
-      runs-on: ubuntu-latest
-      environment: production
+    name: Build Image
+    runs-on: ubuntu-latest
+    environment: production
 
     steps:
     - name: Checkout
