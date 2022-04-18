@@ -10,8 +10,8 @@ env:
   ECS_CLUSTER: DevopsProjectCluster
   ECS_TASK_DEFINITION: F:\Projects\ExpressJS\myapp\aws-task-definition.json 
   CONTAINER_NAME: DevopsProjectContainer          
-permissions:
-  contents: read
+# permissions:
+#   contents: read
 
 jobs:
   deploy:
