@@ -9,7 +9,7 @@
       "entryPoint": null,
       "portMappings": [
         {
-          "hostPort": 8888,
+          "hostPort": 1908,
           "protocol": "tcp",
           "containerPort": 5000
         }
@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "public.ecr.aws/j2z9d8l9/devops_project_repo:latest",
+      "image": "545623582025.dkr.ecr.us-east-1.amazonaws.com/new_nodeapp_repo:nodeapp_image",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -46,7 +46,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "DevopsProjectContainer"
+      "name": "NodeAppContainer"
     }
   ],
   "placementConstraints": [],
@@ -56,9 +56,16 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/DevopsProjectTask:3",
-  "family": "DevopsProjectTask",
-  "requiresAttributes": [],
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppTask:4",
+  "family": "NodeAppTask",
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    }
+  ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
@@ -66,7 +73,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "512",
-  "revision": 3,
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
