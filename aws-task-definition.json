@@ -26,10 +26,10 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": 500,
+      "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "545623582025.dkr.ecr.us-east-1.amazonaws.com/new_nodeapp_repo:d308bed427696edb0b70603434baa5f9e23584d6",
+      "image": "545623582025.dkr.ecr.us-east-1.amazonaws.com/new_nodeapp_repo:f9ef7fc5390f5a5ecf1802ff1b60339e87e395cf",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,26 +50,20 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "1024",
+  "memory": "512",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppTask:10",
-  "family": "NodeAppTask",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppCluster:1",
+  "family": "NodeAppCluster",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
     }
   ],
   "pidMode": null,
@@ -79,7 +73,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "512",
-  "revision": 10,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
