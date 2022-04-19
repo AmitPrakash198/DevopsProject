@@ -46,9 +46,6 @@ jobs:
         ECR_REPOSITORY: new_nodeapp_repo
         IMAGE_TAG: ${{ github.sha }}
       run: 
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -58,7 +55,7 @@ jobs:
       id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: .app/aws-task-definition.json
+        task-definition: aws-task-definition.json
         container-name: NodeAppContainer
         image: ${{ steps.build-image.outputs.image }}  # amazon/amazon-ecs-sample:latest
         # environment-variables: "LOG_LEVEL=info"
