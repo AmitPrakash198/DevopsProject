@@ -17,7 +17,12 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [],
+      "environment": [
+        {
+          "name": "LOG_LEVEL",
+          "value": "info"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
@@ -29,7 +34,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "545623582025.dkr.ecr.us-east-1.amazonaws.com/new_nodeapp_repo:f9ef7fc5390f5a5ecf1802ff1b60339e87e395cf",
+      "image": "amazon/amazon-ecs-sample:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,30 +55,23 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": "1024",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppCluster:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppCluster:4",
   "family": "NodeAppCluster",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    }
-  ],
+  "requiresAttributes": [],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "512",
-  "revision": 1,
+  "cpu": "1024",
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
