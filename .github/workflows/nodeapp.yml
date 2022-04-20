@@ -54,13 +54,13 @@ jobs:
         echo $(steps)
     
     - name: Download task-definition
-      run: aws ecs describe-task-definition --task-definition NodeAppTask --query taskDefinition > task-definition.json
+      run: aws ecs describe-task-definition --task-definition NodeAppTask --query taskDefinition > aws-task-definition.json
 
     - name: Render Amazon ECS task definition
       id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition: aws-task-definition.json
         container-name: NodeAppContainer
         image: ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
         # environment-variables: "LOG_LEVEL=info"
