@@ -50,7 +50,8 @@ jobs:
 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        run: echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        run : echo ${{steps}}
     
     - name: Download task-definition
         run: aws ecs describe-task-definition --task-definition NodeAppTask --query taskDefinition > task-definition.json
