@@ -34,7 +34,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "%IMAGE_NAME",
+      "image": "%Image",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,

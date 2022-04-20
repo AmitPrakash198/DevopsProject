@@ -63,7 +63,7 @@ jobs:
         task-definition: aws-task-definition.json
         container-name: NodeAppContainer
         image: latest-${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
-        # environment-variables: "LOG_LEVEL=info"
+        Image: ${{ output.image }}
         # run: echo $(image)
 
     - name: Deploy to Amazon ECS service
