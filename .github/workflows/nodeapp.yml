@@ -51,7 +51,10 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-        echo $(steps)
+    
+    - name: Download task definition
+        run: aws ecs describe-task-definition --task-definition aws-ecs-NodeAppTask --query taskDefinition > aws-task-definition.json
+
 
     - name: Render Amazon ECS task definition
       id: render-web-container
@@ -59,7 +62,7 @@ jobs:
       with:
         task-definition: aws-task-definition.json
         container-name: NodeAppContainer
-        image: ${{ steps.outputs-image.outputs.image }}     # amazon/amazon-ecs-sample:latest
+        image: ${{ steps.push-image.outputs.image }}     # amazon/amazon-ecs-sample:latest
         # environment-variables: "LOG_LEVEL=info"
 
     - name: Deploy to Amazon ECS service
