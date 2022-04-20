@@ -54,7 +54,8 @@ jobs:
         echo ${{steps}}
     
     - name: Download task-definition
-        aws ecs describe-task-definition --task-definition NodeAppTask --query taskDefinition > task-definition.json
+        run:
+          aws ecs describe-task-definition --task-definition NodeAppTask --query taskDefinition > task-definition.json
 
     - name: Render Amazon ECS task definition
       id: render-web-container
