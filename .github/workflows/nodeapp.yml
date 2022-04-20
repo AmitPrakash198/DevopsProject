@@ -44,7 +44,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: new_nodeapp_repo
-        IMAGE_TAG: new_nodeapp_repo-${{ github.sha }}
+        IMAGE_TAG: new_nodeapp_repo-${{ github.sha }}:latest
       run: 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
 
