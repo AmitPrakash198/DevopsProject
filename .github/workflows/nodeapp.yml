@@ -53,7 +53,7 @@ jobs:
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
     
     - name: Download task-definition
-        run: aws ecs describe-tasks --cluster NodeAppCluster --tasks arn:arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppCluster:12
+        run: aws ecs describe-task-definition --task-definition NodeAppTask --query taskDefinition > task-definition.json
 
     - name: Render Amazon ECS task definition
       id: render-web-container
