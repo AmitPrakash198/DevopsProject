@@ -64,6 +64,9 @@ jobs:
         container-name: NodeAppContainer
         image: latest-${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
         # run: echo $(image)
+      run: 
+        docker tag image latest-image
+        docker tag latest-image image
 
     - name: Deploy to Amazon ECS service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
