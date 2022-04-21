@@ -46,7 +46,7 @@ jobs:
         ECR_REPOSITORY: new_nodeapp_repo
         IMAGE_TAG: new_nodeapp_repo-${{ github.sha }}
       run: 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
+        docker build -t $ECR_REPOSITORY:$IMAGE_TAG . 
 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
@@ -63,11 +63,12 @@ jobs:
         task-definition: aws-task-definition.json
         container-name: NodeAppContainer
         image: ${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
+        LOG_LEVEL: info
         # run: echo $(image)
 
     - name: Deploy to Amazon ECS service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${ steps.render-web-container.outputs.task-definition }
+        task-definition: ${{ steps.render-web-container.outputs.task-definition }} 
         service: NodeAppService
         cluster: NodeAppCluster
