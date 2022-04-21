@@ -7,7 +7,7 @@ on:
 
 
 
-#  $ECR_REGISTRY
+#  
 # permissions:   
 #   contents: read
 
@@ -47,9 +47,9 @@ jobs:
         ECR_REPOSITORY: new_nodeapp_repo
         IMAGE_TAG: new_nodeapp_repo-${{ github.sha }}
       run: 
-        docker build -t $ECR_REPOSITORY:$IMAGE_TAG . 
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
 
-        docker push $ECR_REPOSITORY:$IMAGE_TAG             
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG             
         
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         echo $(steps)
