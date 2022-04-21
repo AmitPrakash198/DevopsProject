@@ -7,7 +7,8 @@ on:
 
 
 
-# permissions:
+#  $ECR_REGISTRY
+# permissions:   
 #   contents: read
 
 jobs:
@@ -48,8 +49,8 @@ jobs:
       run: 
         docker build -t $ECR_REPOSITORY:$IMAGE_TAG . 
 
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-
+        docker push $ECR_REPOSITORY:$IMAGE_TAG             
+        
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         echo $(steps)
     
