@@ -53,8 +53,6 @@ jobs:
         
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         echo $(steps)
-    - env: 
-        build-image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
     - name: Download task-definition
       run: aws ecs describe-task-definition --task-definition NodeAppCluster --query taskDefinition > aws-task-definition.json
@@ -65,7 +63,8 @@ jobs:
       with:
         task-definition: aws-task-definition.json
         container-name: NodeAppContainer
-        image: build-image # ${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
+        Image_Name: ${{ steps.build-image.outputs.image }}
+        image: ${{ Image_Name }} # ${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
         LOG_LEVEL: info
         # run: echo $(image)
 
