@@ -58,7 +58,7 @@ jobs:
       run: aws ecs describe-task-definition --task-definition NodeAppCluster --query taskDefinition > aws-task-definition.json
 
     - name: Render Amazon ECS task definition
-      id: render-web-container
+      id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: aws-task-definition.json
@@ -70,6 +70,6 @@ jobs:
     - name: Deploy to Amazon ECS service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ steps.render-web-container.outputs.task-definition }} 
+        task-definition: ${{ %steps.task-def.outputs.task-definition }} 
         service: NodeAppService
         cluster: NodeAppCluster
