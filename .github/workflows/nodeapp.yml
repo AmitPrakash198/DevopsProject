@@ -45,7 +45,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: new_nodeapp_repo
-        IMAGE_TAG: new_nodeapp_repo-${{ github.sha }}
+        IMAGE_TAG: new_nodeapp_repo            #-${{ github.sha }}
       run: 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
 
@@ -63,8 +63,7 @@ jobs:
       with:
         task-definition: aws-task-definition.json
         container-name: NodeAppContainer
-        Image_Name: ${{ steps.build-image.outputs.image }}
-        image: ${{ Image_Name }} # ${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
+        image: ${{ steps.build-image.outputs.image }} # ${{ steps.push-image.outputs.image }}  # amazon/amazon-ecs-sample:latest 
         LOG_LEVEL: info
         # run: echo $(image)
 
