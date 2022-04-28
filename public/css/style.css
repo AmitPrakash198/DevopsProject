@@ -9495,6 +9495,7 @@ button.bg-dark:focus {
 
 .text-capitalize {
   text-transform: capitalize !important;
+  color:rgba(0, 255, 255);
 }
 
 .font-weight-light {
