@@ -49,7 +49,7 @@ jobs:
         # echo $(steps)
     
     - name: Download task-definition
-      run: aws ecs describe-task-definition --task-definition NodeAppCluster --query taskDefinition > aws-task-definition.json
+      run: aws ecs describe-task-definition --task-definition NodeAppTaskDefinition --query taskDefinition > aws-task-definition.json
 
     - name: Render Amazon ECS task definition
       id: task-def
