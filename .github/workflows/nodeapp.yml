@@ -38,8 +38,8 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: nodeapp_repo
-        IMAGE_TAG: nodeapp_repo            # -${{ github.sha }}
+        ECR_REPOSITORY: new_nodeapp_repo
+        IMAGE_TAG: new_nodeapp_repo            # -${{ github.sha }}
       run: 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
 
