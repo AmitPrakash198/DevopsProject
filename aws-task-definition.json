@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "public.ecr.aws/j2z9d8l9/nodeapp_repo",
+      "image": "545623582025.dkr.ecr.us-east-1.amazonaws.com/new_nodeapp_repo",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -56,9 +56,16 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppTaskDefinition:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545623582025:task-definition/NodeAppTaskDefinition:2",
   "family": "NodeAppTaskDefinition",
-  "requiresAttributes": [],
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    }
+  ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
@@ -66,7 +73,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "512",
-  "revision": 1,
+  "revision": 2,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
